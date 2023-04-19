@@ -6,6 +6,12 @@ type TParams = {
   };
 };
 
+export function generateMetadata({ params }: TParams) {
+  return {
+    title: `product name : ${params.slug}`,
+  };
+}
+
 export default function PantsPage({ params }: TParams) {
   if (params.slug === 'nothing') notFound();
   return <h1>{params.slug} 제품 설명~</h1>;
