@@ -1,19 +1,21 @@
 import Link from 'next/link';
 import styles from './layout.module.css';
+import { getProducts } from '@/service/products';
 
-const products = ['skirt', 'pants', 'top', 'underwear'];
-
-export default function ProductsPage() {
+export default async function ProductsPage(): Promise<any> {
+  const products = await getProducts();
   return (
-    <section className={styles.container}>
-      <h1>제품 설명!</h1>
-      <ul>
-        {products.map((product, index) => (
-          <li key={index}>
-            <Link href={`/products/${product}`}>{product}</Link>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <>
+      <section className={styles.container}>
+        <h1>제품 설명!</h1>
+        <ul>
+          {products.map(({ id, name }, index) => (
+            <li key={index}>
+              <Link href={`/products/${id}`}>{name}</Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
   );
 }
