@@ -1,17 +1,12 @@
 import Link from 'next/link';
 import styles from './layout.module.css';
 import { getProducts } from '@/service/products';
+import MeowArticle from '@/components/MeowArticle';
 
 // export const revalidate = 3;
 
 export default async function ProductsPage(): Promise<any> {
   const products = await getProducts();
-  const res = await fetch('https://meowfacts.herokuapp.com', {
-    next: { revalidate: 3 },
-    //cache:"no-cache"
-  });
-  const data = await res.json();
-  const factText = data.data[0];
 
   return (
     <>
@@ -24,7 +19,7 @@ export default async function ProductsPage(): Promise<any> {
             </li>
           ))}
         </ul>
-        <article className={styles.article}>{factText}</article>
+        <MeowArticle />
       </section>
     </>
   );
