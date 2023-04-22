@@ -2,6 +2,8 @@ import Link from 'next/link';
 import styles from './layout.module.css';
 import { getProducts } from '@/service/products';
 
+export const revalidate = 3;
+
 export default async function ProductsPage(): Promise<any> {
   const products = await getProducts();
   return (
