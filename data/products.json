@@ -2,16 +2,19 @@
   {
     "id": "1111",
     "name": "jeans",
-    "price": "70000"
+    "price": "70000",
+    "image": "jeans.jpg"
   },
   {
     "id": "2222",
-    "name": "dress",
-    "price": "50000"
+    "name": "shoes",
+    "price": "50000",
+    "image": "shoes.jpg"
   },
   {
     "id": "3333",
-    "name": "top",
-    "price": "30000"
+    "name": "tshirt",
+    "price": "30000",
+    "image": "tshirt.jpg"
   }
 ]
